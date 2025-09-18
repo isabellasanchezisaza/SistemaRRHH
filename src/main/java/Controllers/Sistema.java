@@ -1,4 +1,4 @@
-package Controlers;
+package Controllers;
 import Sistema.models.Empleado;
 import Sistema.models.ReporteDesempenio;
 import Sistema.models.Departamento;

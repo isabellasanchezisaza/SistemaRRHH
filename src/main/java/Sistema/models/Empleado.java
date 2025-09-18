@@ -9,6 +9,7 @@ public class Empleado {
     private LocalDate fechaIngreso;
     private String departamento;
 
+    //Constructor.
     public Empleado(int idEmpleado, String nombre, String apellido, LocalDate fechaIngreso, String departamento) {
         this.idEmpleado = idEmpleado;
         this.nombre = nombre;
@@ -17,6 +18,7 @@ public class Empleado {
         this.departamento = departamento;
     }
 
+    //Getters y Setters.
     public int getIdEmpleado() {
         return idEmpleado;
     }
@@ -54,6 +56,7 @@ public class Empleado {
         this.departamento = departamento;
     }
 
+    //Sobrecarga de método toString para mostrar la información del empleado.
     @Override
 
     public String toString() {

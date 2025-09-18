@@ -3,10 +3,12 @@ package Sistema.models;
 import java.time.LocalDate;
 
 public class EmpleadoPermanente extends Empleado {
+    //Atributos específicos.
     private String beneficios;
     private double salarioMensual;
     private LocalDate fechaFinContrato;
 
+    //Constructor.
     public EmpleadoPermanente(int idEmpleado, String nombre, String apellido, LocalDate fechaIngreso, String departamento, String beneficios, double salarioMensual, LocalDate fechaFinContrato) {
         super(idEmpleado, nombre, apellido, fechaIngreso, departamento);
         this.beneficios = beneficios;
@@ -14,6 +16,7 @@ public class EmpleadoPermanente extends Empleado {
         this.fechaFinContrato = fechaFinContrato;
     }
 
+    //Getters y Setters.
     public String getBeneficios() {
         return beneficios;
     }

@@ -6,8 +6,9 @@ public class Departamento {
     private int idDepartamento;
     private String nombre;
     private String descripcion;
-    private ArrayList<Empleado> empleados;
+    private ArrayList<Empleado> empleados; //Relación con Empleado.
 
+    //Constructor.
     public Departamento(int idDepartamento, String nombre, String descripcion) {
         this.idDepartamento = idDepartamento;
         this.nombre = nombre;
@@ -15,6 +16,7 @@ public class Departamento {
         this.empleados = new ArrayList<>();
     }
 
+    //Getters y Setters.
     public int getIdDepartamento() {
         return idDepartamento;
     }
@@ -43,6 +45,7 @@ public class Departamento {
         this.descripcion = descripcion;
     }
 
+    //CRUD
     public boolean asignarEmpleado(Empleado empleado) {
         return this.empleados.add(empleado);
     }

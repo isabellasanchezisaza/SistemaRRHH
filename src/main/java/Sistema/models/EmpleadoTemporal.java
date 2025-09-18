@@ -1,15 +1,18 @@
 package Sistema.models;
 
 public class EmpleadoTemporal extends Empleado {
+    //Atributos específicos.
     private double tarifaHora;
     private int duracionContrato; // en meses
 
+    //Constructor.
     public EmpleadoTemporal(int idEmpleado, String nombre, String apellido, java.time.LocalDate fechaIngreso, String departamento, double tarifaHora, int duracionContrato) {
         super(idEmpleado, nombre, apellido, fechaIngreso, departamento);
         this.tarifaHora = tarifaHora;
         this.duracionContrato = duracionContrato;
     }
 
+    //Getters y Setters.
     public double getTarifaHora() {
         return tarifaHora;
     }

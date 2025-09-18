@@ -7,9 +7,10 @@ public class ReporteDesempenio {
     private int idReporte;
     private LocalDate fechaGeneracion;
     private double metricas;
-    private ArrayList<Empleado> empleados;
-    private ArrayList<Departamento> departamentos;
+    private ArrayList<Empleado> empleados; //Relación con Empleado.
+    private ArrayList<Departamento> departamentos; //Relación con Departamento.
 
+    //Constructor.
     public ReporteDesempenio(int idReporte, LocalDate fechaGeneracion, double metricas) {
         this.idReporte = idReporte;
         this.fechaGeneracion = fechaGeneracion;
@@ -18,6 +19,7 @@ public class ReporteDesempenio {
         this.departamentos = new ArrayList<>();
     }
 
+    //Getters y Setters.
     public int getIdReporte() {
         return idReporte;
     }
@@ -34,6 +36,7 @@ public class ReporteDesempenio {
         return departamentos;
     }
 
+    //Método de generación de reporte (para cada uno).
     public void  generarReporteEmpleado (Empleado empleado) {
 
         System.out.println("----REPORTE DE EMPLEADO---");
