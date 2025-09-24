@@ -50,6 +50,24 @@ public class Main {
         reportemp2.generarReporteEmpleado(emple2);
         reportemp6.generarReporteEmpleado(emple6);
 
+        //Gestión de excepciones:
+        try {
+            // Asignar un empleado a un departamento que no existe
+            Departamento dptoVentas = null;
+            dptoVentas.asignarEmpleado(emple1);
+        } catch (NullPointerException e) {
+            System.out.println("Error: No se puede asignar al empleado debido a que el departamento no existe.");
+        }
+
+        try {
+            // Generar un reporte para un empleado que no existe
+            EmpleadoPermanente emple7 = null;
+            ReporteDesempenio reportenull = new ReporteDesempenio(560, java.time.LocalDate.of(2025, 9, 18), 7.0);
+            reportenull.generarReporteEmpleado(emple7);
+        } catch (NullPointerException e) {
+            System.out.println("Error: No se puede generar el reporte porque el empleado no existe.");
+        }
+
 
 
 
