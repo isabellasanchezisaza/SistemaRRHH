@@ -3,6 +3,7 @@ import Sistema.models.EmpleadoTemporal;
 import Sistema.models.EmpleadoPermanente;
 import Sistema.models.ReporteDesempenio;
 import Sistema.models.Departamento;
+import Sistema.views.MenuPrincipal;
 
 public class Main {
     public static void main(String[] args) {
@@ -68,7 +69,10 @@ public class Main {
             System.out.println("Error: No se puede generar el reporte porque el empleado no existe.");
         }
 
-
+        //-----------------------------------------------------------------------------------------------------------------
+        
+        MenuPrincipal menu= new MenuPrincipal ();
+        menu.setVisible(true);
 
 
 
