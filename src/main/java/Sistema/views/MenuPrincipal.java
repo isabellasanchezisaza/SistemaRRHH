@@ -4,7 +4,9 @@
  */
 package Sistema.views;
 
+import java.net.URL;
 import javax.swing.ImageIcon;
+import java.awt.Color;
 
 /**
  *
@@ -21,7 +23,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         try {
-            this.setIconImage(new ImageIcon(getClass().getResource("/Sistema/images/icons8-recursos-humanos-50.png")).getImage());
+        this.setIconImage(new ImageIcon(getClass().getResource("/Sistema/images/icons8-recursos-humanos-50.png")).getImage());
         } catch (Exception e) {
             System.out.println("Imagen no encontrada");
         }
@@ -36,23 +38,460 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnAsignarEmpleado = new javax.swing.JPanel();
+        lblIconAgregarEmpleado = new javax.swing.JLabel();
+        lblNombreAgregar = new javax.swing.JLabel();
+        btnBuscarEmpleado = new javax.swing.JPanel();
+        lblIconBuscarEmpleado = new javax.swing.JLabel();
+        lblNombreBuscar = new javax.swing.JLabel();
+        btnMostrarEmpleado = new javax.swing.JPanel();
+        lblIconMostrarEmpleado = new javax.swing.JLabel();
+        lblNombreMostrar = new javax.swing.JLabel();
+        btnActualizarEmpleado = new javax.swing.JPanel();
+        lblIconActualizarEmpleado = new javax.swing.JLabel();
+        lblNombreActualizar = new javax.swing.JLabel();
+        btnEliminarEmpleado = new javax.swing.JPanel();
+        lblIconEliminarEmpleado = new javax.swing.JLabel();
+        lblNombreEliminar = new javax.swing.JLabel();
+        btnGenerarReportEmp = new javax.swing.JPanel();
+        lblIconGenerarReportEmp = new javax.swing.JLabel();
+        lblNombreGenerarReportEmp = new javax.swing.JLabel();
+        btnGenerarReportDep = new javax.swing.JPanel();
+        lblIconGenerarReportDep = new javax.swing.JLabel();
+        lblNombreGenerarReportDep = new javax.swing.JLabel();
+
+        jPasswordField1.setText("jPasswordField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel1.setForeground(new java.awt.Color(102, 0, 204));
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel1.setText("Sistema RRHH");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(294, 294, 294)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(244, 232, 252));
+
+        btnAsignarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
+        btnAsignarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAsignarEmpleadoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAsignarEmpleadoMouseExited(evt);
+            }
+        });
+
+        lblIconAgregarEmpleado.setBackground(new java.awt.Color(204, 204, 255));
+        lblIconAgregarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/images/icons8-agregar-administrador-80.png"))); // NOI18N
+        lblIconAgregarEmpleado.setText("jLabel2");
+        lblIconAgregarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblIconAgregarEmpleadoMouseEntered(evt);
+            }
+        });
+
+        lblNombreAgregar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        lblNombreAgregar.setText("Agregar empleado");
+
+        javax.swing.GroupLayout btnAsignarEmpleadoLayout = new javax.swing.GroupLayout(btnAsignarEmpleado);
+        btnAsignarEmpleado.setLayout(btnAsignarEmpleadoLayout);
+        btnAsignarEmpleadoLayout.setHorizontalGroup(
+            btnAsignarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNombreAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+            .addGroup(btnAsignarEmpleadoLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblIconAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnAsignarEmpleadoLayout.setVerticalGroup(
+            btnAsignarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAsignarEmpleadoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIconAgregarEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNombreAgregar))
+        );
+
+        btnBuscarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
+        btnBuscarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarEmpleadoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarEmpleadoMouseExited(evt);
+            }
+        });
+
+        lblIconBuscarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/images/icons8-buscar-80.png"))); // NOI18N
+        lblIconBuscarEmpleado.setText("jLabel3");
+
+        lblNombreBuscar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        lblNombreBuscar.setText("Buscar empleado");
+
+        javax.swing.GroupLayout btnBuscarEmpleadoLayout = new javax.swing.GroupLayout(btnBuscarEmpleado);
+        btnBuscarEmpleado.setLayout(btnBuscarEmpleadoLayout);
+        btnBuscarEmpleadoLayout.setHorizontalGroup(
+            btnBuscarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBuscarEmpleadoLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblIconBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(btnBuscarEmpleadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNombreBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+        );
+        btnBuscarEmpleadoLayout.setVerticalGroup(
+            btnBuscarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarEmpleadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblIconBuscarEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNombreBuscar))
+        );
+
+        btnMostrarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
+        btnMostrarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMostrarEmpleadoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMostrarEmpleadoMouseExited(evt);
+            }
+        });
+
+        lblIconMostrarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/images/icons8-ver-80.png"))); // NOI18N
+        lblIconMostrarEmpleado.setText("jLabel4");
+
+        lblNombreMostrar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        lblNombreMostrar.setText("Mostrar empleado(s)");
+
+        javax.swing.GroupLayout btnMostrarEmpleadoLayout = new javax.swing.GroupLayout(btnMostrarEmpleado);
+        btnMostrarEmpleado.setLayout(btnMostrarEmpleadoLayout);
+        btnMostrarEmpleadoLayout.setHorizontalGroup(
+            btnMostrarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNombreMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+            .addGroup(btnMostrarEmpleadoLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblIconMostrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnMostrarEmpleadoLayout.setVerticalGroup(
+            btnMostrarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnMostrarEmpleadoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIconMostrarEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNombreMostrar))
+        );
+
+        btnActualizarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
+        btnActualizarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarEmpleadoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarEmpleadoMouseExited(evt);
+            }
+        });
+
+        lblIconActualizarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/images/icons8-actualizar-80.png"))); // NOI18N
+        lblIconActualizarEmpleado.setText("jLabel5");
+
+        lblNombreActualizar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        lblNombreActualizar.setText("Actualizar empleado");
+
+        javax.swing.GroupLayout btnActualizarEmpleadoLayout = new javax.swing.GroupLayout(btnActualizarEmpleado);
+        btnActualizarEmpleado.setLayout(btnActualizarEmpleadoLayout);
+        btnActualizarEmpleadoLayout.setHorizontalGroup(
+            btnActualizarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNombreActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+            .addGroup(btnActualizarEmpleadoLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblIconActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnActualizarEmpleadoLayout.setVerticalGroup(
+            btnActualizarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnActualizarEmpleadoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIconActualizarEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNombreActualizar))
+        );
+
+        btnEliminarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
+        btnEliminarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarEmpleadoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarEmpleadoMouseExited(evt);
+            }
+        });
+
+        lblIconEliminarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/images/icons8-eliminar-80.png"))); // NOI18N
+        lblIconEliminarEmpleado.setText("jLabel6");
+
+        lblNombreEliminar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        lblNombreEliminar.setText("Eliminar empleado");
+
+        javax.swing.GroupLayout btnEliminarEmpleadoLayout = new javax.swing.GroupLayout(btnEliminarEmpleado);
+        btnEliminarEmpleado.setLayout(btnEliminarEmpleadoLayout);
+        btnEliminarEmpleadoLayout.setHorizontalGroup(
+            btnEliminarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNombreEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+            .addGroup(btnEliminarEmpleadoLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblIconEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnEliminarEmpleadoLayout.setVerticalGroup(
+            btnEliminarEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEliminarEmpleadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblIconEliminarEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNombreEliminar))
+        );
+
+        btnGenerarReportEmp.setBackground(new java.awt.Color(244, 232, 252));
+        btnGenerarReportEmp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGenerarReportEmpMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGenerarReportEmpMouseExited(evt);
+            }
+        });
+
+        lblIconGenerarReportEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/images/icons8-crear-archivoEmp-80.png"))); // NOI18N
+
+        lblNombreGenerarReportEmp.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        lblNombreGenerarReportEmp.setText("Generar reporte empleado");
+
+        javax.swing.GroupLayout btnGenerarReportEmpLayout = new javax.swing.GroupLayout(btnGenerarReportEmp);
+        btnGenerarReportEmp.setLayout(btnGenerarReportEmpLayout);
+        btnGenerarReportEmpLayout.setHorizontalGroup(
+            btnGenerarReportEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNombreGenerarReportEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(btnGenerarReportEmpLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lblIconGenerarReportEmp)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnGenerarReportEmpLayout.setVerticalGroup(
+            btnGenerarReportEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnGenerarReportEmpLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIconGenerarReportEmp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNombreGenerarReportEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        btnGenerarReportDep.setBackground(new java.awt.Color(244, 232, 252));
+        btnGenerarReportDep.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGenerarReportDepMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGenerarReportDepMouseExited(evt);
+            }
+        });
+
+        lblIconGenerarReportDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/images/icons8-crear-archivo-80.png"))); // NOI18N
+
+        lblNombreGenerarReportDep.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        lblNombreGenerarReportDep.setText("Generar reporte departamento");
+
+        javax.swing.GroupLayout btnGenerarReportDepLayout = new javax.swing.GroupLayout(btnGenerarReportDep);
+        btnGenerarReportDep.setLayout(btnGenerarReportDepLayout);
+        btnGenerarReportDepLayout.setHorizontalGroup(
+            btnGenerarReportDepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNombreGenerarReportDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnGenerarReportDepLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIconGenerarReportDep)
+                .addGap(49, 49, 49))
+        );
+        btnGenerarReportDepLayout.setVerticalGroup(
+            btnGenerarReportDepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnGenerarReportDepLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIconGenerarReportDep)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNombreGenerarReportDep, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(btnAsignarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnGenerarReportEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnGenerarReportDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnMostrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(btnActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGenerarReportEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGenerarReportDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizarEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrarEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAsignarEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblIconAgregarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconAgregarEmpleadoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconAgregarEmpleadoMouseEntered
+
+    private void btnAsignarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAsignarEmpleadoMouseEntered
+        btnAsignarEmpleado.setBackground(new Color(204,153,255));
+    }//GEN-LAST:event_btnAsignarEmpleadoMouseEntered
+
+    private void btnBuscarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoMouseEntered
+        btnBuscarEmpleado.setBackground(new Color(204,153,255));
+    }//GEN-LAST:event_btnBuscarEmpleadoMouseEntered
+
+    private void btnMostrarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarEmpleadoMouseEntered
+        btnMostrarEmpleado.setBackground(new Color(204,153,255));
+    }//GEN-LAST:event_btnMostrarEmpleadoMouseEntered
+
+    private void btnActualizarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarEmpleadoMouseEntered
+        btnActualizarEmpleado.setBackground(new Color(204,153,255));
+    }//GEN-LAST:event_btnActualizarEmpleadoMouseEntered
+
+    private void btnEliminarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoMouseEntered
+        btnEliminarEmpleado.setBackground(new Color(204,153,255));
+    }//GEN-LAST:event_btnEliminarEmpleadoMouseEntered
+
+    private void btnGenerarReportEmpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportEmpMouseEntered
+        btnGenerarReportEmp.setBackground(new Color(204,153,255));
+    }//GEN-LAST:event_btnGenerarReportEmpMouseEntered
+
+    private void btnGenerarReportDepMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportDepMouseEntered
+        btnGenerarReportDep.setBackground(new Color(204,153,255));
+    }//GEN-LAST:event_btnGenerarReportDepMouseEntered
+
+    private void btnAsignarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAsignarEmpleadoMouseExited
+        btnAsignarEmpleado.setBackground(new Color(244,232,252));
+    }//GEN-LAST:event_btnAsignarEmpleadoMouseExited
+
+    private void btnBuscarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoMouseExited
+        btnBuscarEmpleado.setBackground(new Color(244,232,252));
+    }//GEN-LAST:event_btnBuscarEmpleadoMouseExited
+
+    private void btnMostrarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarEmpleadoMouseExited
+        btnMostrarEmpleado.setBackground(new Color(244,232,252));
+    }//GEN-LAST:event_btnMostrarEmpleadoMouseExited
+
+    private void btnActualizarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarEmpleadoMouseExited
+        btnActualizarEmpleado.setBackground(new Color(244,232,252));
+    }//GEN-LAST:event_btnActualizarEmpleadoMouseExited
+
+    private void btnEliminarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoMouseExited
+        btnEliminarEmpleado.setBackground(new Color(244,232,252));
+    }//GEN-LAST:event_btnEliminarEmpleadoMouseExited
+
+    private void btnGenerarReportEmpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportEmpMouseExited
+        btnGenerarReportEmp.setBackground(new Color(244,232,252));
+    }//GEN-LAST:event_btnGenerarReportEmpMouseExited
+
+    private void btnGenerarReportDepMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportDepMouseExited
+        btnGenerarReportDep.setBackground(new Color(244,232,252));
+    }//GEN-LAST:event_btnGenerarReportDepMouseExited
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel btnActualizarEmpleado;
+    private javax.swing.JPanel btnAsignarEmpleado;
+    private javax.swing.JPanel btnBuscarEmpleado;
+    private javax.swing.JPanel btnEliminarEmpleado;
+    private javax.swing.JPanel btnGenerarReportDep;
+    private javax.swing.JPanel btnGenerarReportEmp;
+    private javax.swing.JPanel btnMostrarEmpleado;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel lblIconActualizarEmpleado;
+    private javax.swing.JLabel lblIconAgregarEmpleado;
+    private javax.swing.JLabel lblIconBuscarEmpleado;
+    private javax.swing.JLabel lblIconEliminarEmpleado;
+    private javax.swing.JLabel lblIconGenerarReportDep;
+    private javax.swing.JLabel lblIconGenerarReportEmp;
+    private javax.swing.JLabel lblIconMostrarEmpleado;
+    private javax.swing.JLabel lblNombreActualizar;
+    private javax.swing.JLabel lblNombreAgregar;
+    private javax.swing.JLabel lblNombreBuscar;
+    private javax.swing.JLabel lblNombreEliminar;
+    private javax.swing.JLabel lblNombreGenerarReportDep;
+    private javax.swing.JLabel lblNombreGenerarReportEmp;
+    private javax.swing.JLabel lblNombreMostrar;
     // End of variables declaration//GEN-END:variables
 }
