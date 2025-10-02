@@ -4,6 +4,7 @@ import Sistema.models.EmpleadoPermanente;
 import Sistema.models.ReporteDesempenio;
 import Sistema.models.Departamento;
 import Sistema.views.MenuPrincipal;
+import Sistema.views.IniciarSesion;
 
 public class Main {
     public static void main(String[] args) {
@@ -72,7 +73,10 @@ public class Main {
         //-----------------------------------------------------------------------------------------------------------------
         
         MenuPrincipal menu= new MenuPrincipal ();
-        menu.setVisible(true);
+        //menu.setVisible(true);
+        
+        IniciarSesion iniciar = new IniciarSesion(menu, true, sistema);
+        iniciar.setVisible(true);
 
 
 

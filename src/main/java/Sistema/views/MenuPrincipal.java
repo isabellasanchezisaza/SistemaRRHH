@@ -7,26 +7,31 @@ package Sistema.views;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import java.awt.Color;
-
+import javax.swing.JPanel;
+import Controllers.Sistema;
 /**
  *
  * @author Isabella
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-    
+    private Sistema sistema;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPrincipal.class.getName());
 
     /**
      * Creates new form MenuPrincipal
+     * @param sistema
      */
-    public MenuPrincipal() {
+    public MenuPrincipal(Sistema sistema) {
         initComponents();
+        this.sistema = sistema;
         this.setLocationRelativeTo(null);
         try {
         this.setIconImage(new ImageIcon(getClass().getResource("/Sistema/images/icons8-recursos-humanos-50.png")).getImage());
         } catch (Exception e) {
             System.out.println("Imagen no encontrada");
         }
+        configurarMenuSegunRol();
+
     }
 
     /**
@@ -405,67 +410,102 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void entrandoMouse (JPanel panel){
+        panel.setBackground(new Color(204,153,255));
+    }
+    
+    private void saliendoMouse (JPanel panel){
+        panel.setBackground(new Color(244,232,252));
+    }
+    
     private void lblIconAgregarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconAgregarEmpleadoMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_lblIconAgregarEmpleadoMouseEntered
 
     private void btnAsignarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAsignarEmpleadoMouseEntered
-        btnAsignarEmpleado.setBackground(new Color(204,153,255));
+        this.entrandoMouse(btnAsignarEmpleado);
     }//GEN-LAST:event_btnAsignarEmpleadoMouseEntered
 
     private void btnBuscarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoMouseEntered
-        btnBuscarEmpleado.setBackground(new Color(204,153,255));
+        this.entrandoMouse(btnBuscarEmpleado);
     }//GEN-LAST:event_btnBuscarEmpleadoMouseEntered
 
     private void btnMostrarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarEmpleadoMouseEntered
-        btnMostrarEmpleado.setBackground(new Color(204,153,255));
+        this.entrandoMouse(btnMostrarEmpleado);
     }//GEN-LAST:event_btnMostrarEmpleadoMouseEntered
 
     private void btnActualizarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarEmpleadoMouseEntered
-        btnActualizarEmpleado.setBackground(new Color(204,153,255));
+        this.entrandoMouse(btnActualizarEmpleado);
     }//GEN-LAST:event_btnActualizarEmpleadoMouseEntered
 
     private void btnEliminarEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoMouseEntered
-        btnEliminarEmpleado.setBackground(new Color(204,153,255));
+        this.entrandoMouse(btnEliminarEmpleado);
     }//GEN-LAST:event_btnEliminarEmpleadoMouseEntered
 
     private void btnGenerarReportEmpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportEmpMouseEntered
-        btnGenerarReportEmp.setBackground(new Color(204,153,255));
+        this.entrandoMouse(btnGenerarReportEmp);
     }//GEN-LAST:event_btnGenerarReportEmpMouseEntered
 
     private void btnGenerarReportDepMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportDepMouseEntered
-        btnGenerarReportDep.setBackground(new Color(204,153,255));
+        this.entrandoMouse(btnGenerarReportDep);
     }//GEN-LAST:event_btnGenerarReportDepMouseEntered
 
     private void btnAsignarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAsignarEmpleadoMouseExited
-        btnAsignarEmpleado.setBackground(new Color(244,232,252));
+        this.saliendoMouse(btnAsignarEmpleado);
     }//GEN-LAST:event_btnAsignarEmpleadoMouseExited
 
     private void btnBuscarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoMouseExited
-        btnBuscarEmpleado.setBackground(new Color(244,232,252));
+        this.saliendoMouse(btnBuscarEmpleado);
     }//GEN-LAST:event_btnBuscarEmpleadoMouseExited
 
     private void btnMostrarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarEmpleadoMouseExited
-        btnMostrarEmpleado.setBackground(new Color(244,232,252));
+        this.saliendoMouse(btnMostrarEmpleado);
     }//GEN-LAST:event_btnMostrarEmpleadoMouseExited
 
     private void btnActualizarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarEmpleadoMouseExited
-        btnActualizarEmpleado.setBackground(new Color(244,232,252));
+        this.saliendoMouse(btnActualizarEmpleado);
     }//GEN-LAST:event_btnActualizarEmpleadoMouseExited
 
     private void btnEliminarEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoMouseExited
-        btnEliminarEmpleado.setBackground(new Color(244,232,252));
+        this.saliendoMouse(btnEliminarEmpleado);
     }//GEN-LAST:event_btnEliminarEmpleadoMouseExited
 
     private void btnGenerarReportEmpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportEmpMouseExited
-        btnGenerarReportEmp.setBackground(new Color(244,232,252));
+        this.saliendoMouse(btnGenerarReportEmp);
     }//GEN-LAST:event_btnGenerarReportEmpMouseExited
 
     private void btnGenerarReportDepMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportDepMouseExited
-        btnGenerarReportDep.setBackground(new Color(244,232,252));
+        this.saliendoMouse(btnGenerarReportDep);
     }//GEN-LAST:event_btnGenerarReportDepMouseExited
     
+    private void configurarMenuSegunRol() {
+    String rol = sistema.getRol();
+    
+    switch(rol) {
+        case "ADMIN" -> {
+            }
+            
+        case "JEFE_DEPARTAMENTO" -> {
+            // Ocultar botones que no puede usar
+            btnAsignarEmpleado.setVisible(false);
+            btnActualizarEmpleado.setVisible(false);
+            btnBuscarEmpleado.setVisible(false);
+            btnEliminarEmpleado.setVisible(false);
+                // Solo puede: Mostrar empleados, Reportes
+            }
+            
+        case "EMPLEADO" -> {
+            // Solo puede ver: Mostrar empleados y su reporte
+            btnAsignarEmpleado.setVisible(false);
+            btnEliminarEmpleado.setVisible(false);
+            btnActualizarEmpleado.setVisible(false);
+            btnBuscarEmpleado.setVisible(false);
+            btnGenerarReportDep.setVisible(false);
+            }
+    }
+        // Admin ve todos los botones (no ocultar nada)
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnActualizarEmpleado;
