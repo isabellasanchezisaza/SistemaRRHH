@@ -5,6 +5,7 @@ import Sistema.models.ReporteDesempenio;
 import Sistema.models.Departamento;
 import Sistema.views.MenuPrincipal;
 import Sistema.views.IniciarSesion;
+import Controllers.Sistema;
 
 public class Main {
     public static void main(String[] args) {
@@ -75,7 +76,9 @@ public class Main {
         MenuPrincipal menu= new MenuPrincipal ();
         //menu.setVisible(true);
         
-        IniciarSesion iniciar = new IniciarSesion(menu, true, sistema);
+        Sistema sistema= new Sistema(dptoCX, emple1, reporteCX);
+        
+        IniciarSesion iniciar = new IniciarSesion(null, true, sistema);
         iniciar.setVisible(true);
 
 

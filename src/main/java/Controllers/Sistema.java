@@ -10,6 +10,15 @@ public class Sistema {
     private String username;
     private String password;
     private String rol;
+    
+    public Sistema(Departamento departamento, Empleado empleado, ReporteDesempenio reporte) {
+        this.departamento = departamento;
+        this.empleado = empleado;
+        this.reporte = reporte;
+        this.username = null;
+        this.password = null;
+        this.rol = null;
+    }
 
     public Sistema(Departamento departamento, Empleado empleado, ReporteDesempenio reporte, String username, String password, String rol) {
         this.departamento = departamento;

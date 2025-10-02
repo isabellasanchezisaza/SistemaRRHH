@@ -185,6 +185,7 @@ public class IniciarSesion extends javax.swing.JDialog {
         System.out.println("Iniciar Sesión");
         String user = txtUsuario.getText();
         String password = new String(txtContraseña.getPassword());
+        
     if (user.equals("admin") && password.equals("admin123")) {
         sistema.setUsername(user);
         sistema.setRol("ADMIN");
@@ -216,7 +217,7 @@ public class IniciarSesion extends javax.swing.JDialog {
             "Error", 
             JOptionPane.ERROR_MESSAGE);
         }
-    }
+
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
     
 
@@ -243,4 +244,4 @@ public class IniciarSesion extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-
+}
