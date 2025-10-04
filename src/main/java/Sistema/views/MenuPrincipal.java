@@ -9,7 +9,9 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JPanel;
 import Controllers.Sistema;
+import Sistema.models.Empleado;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -276,6 +278,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         btnEliminarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
         btnEliminarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarEmpleadoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnEliminarEmpleadoMouseEntered(evt);
             }
@@ -313,6 +318,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         btnGenerarReportEmp.setBackground(new java.awt.Color(244, 232, 252));
         btnGenerarReportEmp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGenerarReportEmpMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGenerarReportEmpMouseEntered(evt);
             }
@@ -349,6 +357,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         btnGenerarReportDep.setBackground(new java.awt.Color(244, 232, 252));
         btnGenerarReportDep.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGenerarReportDepMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGenerarReportDepMouseEntered(evt);
             }
@@ -519,6 +530,70 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ActualizarEmpleado ventana = new ActualizarEmpleado (this,true,sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_btnActualizarEmpleadoMouseClicked
+
+    private void btnEliminarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoMouseClicked
+        String idStr = JOptionPane.showInputDialog(this, 
+        "Ingrese el ID del empleado a eliminar:", 
+        "Eliminar Empleado", 
+        JOptionPane.QUESTION_MESSAGE);
+    
+    if (idStr == null || idStr.isEmpty()) {
+        return; // Usuario canceló
+    }
+    
+    try {
+        int id = Integer.parseInt(idStr);
+        
+        Empleado empleado = sistema.buscarEmpleado(id);
+        
+        if (empleado == null) {
+            JOptionPane.showMessageDialog(this, 
+                "No se encontró ningún empleado con ese ID", 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        int confirmacion = JOptionPane.showConfirmDialog(this, 
+            "¿Está seguro que desea eliminar al empleado:\n" + 
+            empleado.getNombre() + " " + empleado.getApellido() + "?", 
+            "Confirmar eliminación", 
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE);
+        
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            Empleado eliminado = sistema.removerEmpleado(id);
+            
+            if (eliminado != null) {
+                JOptionPane.showMessageDialog(this, 
+                    "Empleado eliminado exitosamente", 
+                    "Éxito", 
+                    JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, 
+                    "Error al eliminar empleado", 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, 
+            "El ID debe ser un número", 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_btnEliminarEmpleadoMouseClicked
+
+    private void btnGenerarReportEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportEmpMouseClicked
+        GenerarReportEmple ventana = new GenerarReportEmple(this,true,sistema);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnGenerarReportEmpMouseClicked
+
+    private void btnGenerarReportDepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportDepMouseClicked
+        GenerarReportDep ventana = new GenerarReportDep(this,true,sistema);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnGenerarReportDepMouseClicked
     
     private void configurarMenuSegunRol() {
     String rol = sistema.getRol();

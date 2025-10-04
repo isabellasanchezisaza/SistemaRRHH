@@ -3,7 +3,6 @@ import Sistema.models.EmpleadoTemporal;
 import Sistema.models.EmpleadoPermanente;
 import Sistema.models.ReporteDesempenio;
 import Sistema.models.Departamento;
-import Sistema.views.MenuPrincipal;
 import Sistema.views.IniciarSesion;
 import Controllers.Sistema;
 

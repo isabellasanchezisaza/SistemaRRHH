@@ -31,7 +31,6 @@ public class MostrarEmpleado extends javax.swing.JDialog {
         this.setIconImage(new ImageIcon(getClass().getResource("/Sistema/images/icons8-recursos-humanos-50.png")).getImage());
         
         cargarEmpleados();
-        desaparecerBotonEliminar();
     }
 
     /**
@@ -49,7 +48,6 @@ public class MostrarEmpleado extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnCerrarTabla = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(188, 146, 214));
@@ -86,21 +84,12 @@ public class MostrarEmpleado extends javax.swing.JDialog {
             }
         });
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(640, Short.MAX_VALUE)
                 .addComponent(btnCerrarTabla)
                 .addGap(23, 23, 23))
         );
@@ -108,9 +97,7 @@ public class MostrarEmpleado extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCerrarTabla)
-                    .addComponent(btnEliminar))
+                .addComponent(btnCerrarTabla)
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
@@ -156,10 +143,6 @@ public class MostrarEmpleado extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnCerrarTablaActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
     private void cargarEmpleados(){
         //Crear el modelo de la tabla
         DefaultTableModel modelo = new DefaultTableModel();
@@ -190,29 +173,9 @@ public class MostrarEmpleado extends javax.swing.JDialog {
         tblEmpleados.setModel(modelo);
     }
     
-    private void desaparecerBotonEliminar (){
-        String rol = sistema.getRol();
-        
-        switch(rol){
-            case "ADMIN" -> {
-                break;
-            }
-            
-            case "JEFE_DEPARTAMENTO" ->{
-                btnEliminar.setVisible(false);
-                break;
-            }
-            
-            case "EMPLEADO" -> {
-                btnEliminar.setVisible(false);
-                break;
-            }
-        }
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarTabla;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
