@@ -4,20 +4,34 @@
  */
 package Sistema.views;
 
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+import Controllers.Sistema;
+import Sistema.models.Empleado;
+import java.util.ArrayList;
 /**
  *
  * @author Isabella
  */
 public class MostrarEmpleado extends javax.swing.JDialog {
-    
+    private Sistema sistema;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MostrarEmpleado.class.getName());
 
     /**
      * Creates new form MenuPrincipal
+     * @param parent
+     * @param modal
+     * @param sistema
      */
-    public MostrarEmpleado(java.awt.Frame parent, boolean modal) {
+    public MostrarEmpleado(java.awt.Frame parent, boolean modal, Sistema sistema) {
         super(parent, modal);
+        this.sistema = sistema;
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/Sistema/images/icons8-recursos-humanos-50.png")).getImage());
+        
+        cargarEmpleados();
+        desaparecerBotonEliminar();
     }
 
     /**
@@ -29,27 +43,180 @@ public class MostrarEmpleado extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblEmpleados = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnCerrarTabla = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(188, 146, 214));
         setResizable(false);
+
+        jScrollPane1.setBackground(new java.awt.Color(244, 232, 252));
+
+        tblEmpleados.setBackground(new java.awt.Color(244, 232, 252));
+        tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Apellido", "Fecha Ingreso", "Departamento"
+            }
+        ));
+        jScrollPane1.setViewportView(tblEmpleados);
+
+        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel1.setText("Empleados");
+
+        jPanel2.setBackground(new java.awt.Color(51, 0, 102));
+
+        btnCerrarTabla.setText("Cerrar");
+        btnCerrarTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarTablaActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnEliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrarTabla)
+                .addGap(23, 23, 23))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCerrarTabla)
+                    .addComponent(btnEliminar))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(278, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(279, 279, 279))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 552, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnCerrarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarTablaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarTablaActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void cargarEmpleados(){
+        //Crear el modelo de la tabla
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        //Definir las columnas
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Fecha Ingreso");
+        modelo.addColumn("Departamento");
+        
+        //Obtener los empleados del departamento
+        ArrayList<Empleado> empleados = sistema.getDepartamento().getEmpleados();
+        
+        //Agregar cada empleado como una fila
+        for (Empleado emp: empleados){
+            Object[] fila= {
+                emp.getIdEmpleado(),
+                emp.getNombre(),
+                emp.getApellido(),
+                emp.getFechaIngreso(),
+                emp.getDepartamento()    
+            };
+            modelo.addRow(fila);
+        }
+        
+        //Asignar el modelo a la tabla
+        tblEmpleados.setModel(modelo);
+    }
+    
+    private void desaparecerBotonEliminar (){
+        String rol = sistema.getRol();
+        
+        switch(rol){
+            case "ADMIN" -> {
+                break;
+            }
+            
+            case "JEFE_DEPARTAMENTO" ->{
+                btnEliminar.setVisible(false);
+                break;
+            }
+            
+            case "EMPLEADO" -> {
+                btnEliminar.setVisible(false);
+                break;
+            }
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarTabla;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblEmpleados;
     // End of variables declaration//GEN-END:variables
 }

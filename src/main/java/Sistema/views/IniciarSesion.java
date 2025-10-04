@@ -7,6 +7,7 @@ package Sistema.views;
 import javax.swing.JOptionPane;
 import Controllers.Sistema;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Isabella
@@ -18,12 +19,18 @@ public class IniciarSesion extends javax.swing.JDialog {
 
     /**
      * Creates new form IniciarSesion
+     * @param parent
+     * @param modal
+     * @param sistema
      */
     public IniciarSesion(java.awt.Frame parent, boolean modal, Sistema sistema) {
         super(parent, modal);
         this.sistema=sistema;
         this.menu= new ArrayList<>();
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/Sistema/images/icons8-recursos-humanos-50.png")).getImage());
+
     }
 
     /**
@@ -47,6 +54,7 @@ public class IniciarSesion extends javax.swing.JDialog {
         btnCerrarVentana = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 153, 255));
 
@@ -190,26 +198,36 @@ public class IniciarSesion extends javax.swing.JDialog {
         sistema.setUsername(user);
         sistema.setRol("ADMIN");
         
-        // Cerrar login y abrir menú
-        MenuPrincipal menu = new MenuPrincipal(sistema);
-        menu.setVisible(true);
         this.dispose(); // Cierra la ventana de login
+        
+        // Cerrar login y abrir menú
+        java.awt.EventQueue.invokeLater(() -> {
+            MenuPrincipal menu = new MenuPrincipal(sistema);
+            menu.setVisible(true); 
+        }); 
         
     } else if (user.equals("jefe") && password.equals("jefe123")) {
         sistema.setUsername(user);
         sistema.setRol("JEFE_DEPARTAMENTO");
         
-        MenuPrincipal menu = new MenuPrincipal(sistema);
-        menu.setVisible(true);
         this.dispose();
+        
+        java.awt.EventQueue.invokeLater(() -> {
+            MenuPrincipal menu = new MenuPrincipal(sistema);
+            menu.setVisible(true);  
+        });
         
     } else if (user.equals("marcela") && password.equals("emp123")) {
         sistema.setUsername(user);
         sistema.setRol("EMPLEADO");
         
-        MenuPrincipal menu = new MenuPrincipal(sistema);
-        menu.setVisible(true);
         this.dispose();
+        
+        java.awt.EventQueue.invokeLater(() -> {
+            MenuPrincipal menu = new MenuPrincipal(sistema);
+            menu.setVisible(true);
+            
+        });
         
     } else {
         JOptionPane.showMessageDialog(this, 

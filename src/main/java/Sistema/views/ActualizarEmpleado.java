@@ -4,20 +4,38 @@
  */
 package Sistema.views;
 
+import Controllers.Sistema;
+import Sistema.models.Empleado;
+import Sistema.models.EmpleadoPermanente;
+import Sistema.models.EmpleadoTemporal;
+import javax.swing.JOptionPane;
+import java.time.LocalDate;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Isabella
  */
 public class ActualizarEmpleado extends javax.swing.JDialog {
+    private Sistema sistema;
+    private Empleado empleadoActual;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName());
 
     /**
-     * Creates new form ActualizarEmpleado
+     * Creates new form BuscarEmpleado
+     * @param parent
+     * @param modal
+     * @param sistema
      */
-    public ActualizarEmpleado(java.awt.Frame parent, boolean modal) {
+    public ActualizarEmpleado(java.awt.Frame parent, boolean modal, Sistema sistema) {
         super(parent, modal);
+        this.sistema = sistema;
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/Sistema/images/icons8-recursos-humanos-50.png")).getImage());
+        
+        deshabilitarCampos();
     }
 
     /**
@@ -29,25 +47,340 @@ public class ActualizarEmpleado extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtIdBuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtFechaIngreso = new javax.swing.JTextField();
+        cmbDepartamento = new javax.swing.JComboBox<>();
+        btnActualizar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(51, 0, 102));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Ingrese el ID del empleado:");
+
+        txtIdBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdBuscarActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIdBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBuscar)
+                .addGap(134, 134, 134))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtIdBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(btnBuscar)))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(244, 232, 252));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel2.setText("Nombre");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Apellido");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel4.setText("Fecha de ingreso");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel5.setText("Departamento");
+
+        cmbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer Experience", "Operaciones" }));
+
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        jLabel6.setText("Actualizar empleado");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jLabel2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(13, 13, 13)))
+                .addGap(71, 71, 71)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFechaIngreso)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(btnActualizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addGap(203, 203, 203))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizar)
+                    .addComponent(btnCancelar))
+                .addGap(65, 65, 65))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void txtIdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdBuscarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        try {
+            int id = Integer.parseInt(txtIdBuscar.getText());
+
+            empleadoActual = sistema.buscarEmpleado(id);
+
+            if (empleadoActual == null) {
+                JOptionPane.showMessageDialog(this,
+                    "No se encontró ningún empleado con ese ID",
+                    "No encontrado",
+                    JOptionPane.INFORMATION_MESSAGE);
+                deshabilitarCampos();
+                return;
+                
+            } 
+            
+                // Mostrar datos del empleado
+                txtNombre.setText(empleadoActual.getNombre());
+                txtApellido.setText(empleadoActual.getApellido());
+                txtFechaIngreso.setText(empleadoActual.getFechaIngreso().toString());
+                cmbDepartamento.setSelectedItem(empleadoActual.getDepartamento());
+                
+                //Habilitar campos para la edición:
+                habilitarCampos();
+                
+                JOptionPane.showMessageDialog(this, "Empleado encontrado. Puede modificar los datos.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                
+            
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this,
+                "El ID debe ser un número",
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        try {
+            // Obtener datos modificados
+            String nombre = txtNombre.getText();
+            String apellido = txtApellido.getText();
+            LocalDate fecha = LocalDate.parse(txtFechaIngreso.getText());
+            String departamento = (String) cmbDepartamento.getSelectedItem();
+            
+            if (nombre.isEmpty() || apellido.isEmpty()) {
+                JOptionPane.showMessageDialog(this, 
+                    "Nombre y apellido no pueden estar vacíos", 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Crear nuevo empleado con datos actualizados
+            Empleado empleadoNuevo;
+            
+            if (empleadoActual instanceof EmpleadoPermanente) {
+                EmpleadoPermanente empPerm = (EmpleadoPermanente) empleadoActual;
+                empleadoNuevo = new EmpleadoPermanente(
+                    empleadoActual.getIdEmpleado(),
+                    nombre, apellido, fecha, departamento,
+                    empPerm.getBeneficios(),
+                    empPerm.getSalarioMensual(),
+                    empPerm.getFechaFinContrato()
+                );
+            } else {
+                EmpleadoTemporal empTemp = (EmpleadoTemporal) empleadoActual;
+                empleadoNuevo = new EmpleadoTemporal(
+                    empleadoActual.getIdEmpleado(),
+                    nombre, apellido, fecha, departamento,
+                    empTemp.getTarifaHora(),
+                    empTemp.getDuracionContrato()
+                );
+            }
+            
+            // Actualizar en el sistema
+            Empleado resultado = sistema.actualizarEmpleado(
+                empleadoActual.getIdEmpleado(), 
+                empleadoNuevo
+            );
+            
+            if (resultado != null) {
+                JOptionPane.showMessageDialog(this, 
+                    "Empleado actualizado exitosamente", 
+                    "Éxito", 
+                    JOptionPane.INFORMATION_MESSAGE);
+                limpiarCampos();
+                deshabilitarCampos();
+            } else {
+                JOptionPane.showMessageDialog(this, 
+                    "Error al actualizar empleado", 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, 
+                "Error: " + e.getMessage(), 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void habilitarCampos() {
+        txtNombre.setEnabled(true);
+        txtApellido.setEnabled(true);
+        txtFechaIngreso.setEnabled(true);
+        cmbDepartamento.setEnabled(true);
+        btnActualizar.setEnabled(true);
+    }
+    
+    private void deshabilitarCampos() {
+        txtNombre.setEnabled(false);
+        txtApellido.setEnabled(false);
+        txtFechaIngreso.setEnabled(false);
+        cmbDepartamento.setEnabled(false);
+        btnActualizar.setEnabled(false);
+        limpiarCampos();
+    }
+    
+    private void limpiarCampos() {
+        txtIdBuscar.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtFechaIngreso.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JComboBox<String> cmbDepartamento;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtFechaIngreso;
+    private javax.swing.JTextField txtIdBuscar;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

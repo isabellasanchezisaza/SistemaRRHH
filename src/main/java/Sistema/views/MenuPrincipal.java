@@ -9,12 +9,15 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JPanel;
 import Controllers.Sistema;
+import java.util.ArrayList;
+
 /**
  *
  * @author Isabella
  */
 public class MenuPrincipal extends javax.swing.JFrame {
     private Sistema sistema;
+    private ArrayList<IniciarSesion> iniciar;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPrincipal.class.getName());
 
     /**
@@ -68,6 +71,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnGenerarReportDep = new javax.swing.JPanel();
         lblIconGenerarReportDep = new javax.swing.JLabel();
         lblNombreGenerarReportDep = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -99,9 +104,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(244, 232, 252));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAsignarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
         btnAsignarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAsignarEmpleadoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnAsignarEmpleadoMouseEntered(evt);
             }
@@ -141,8 +150,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(lblNombreAgregar))
         );
 
+        jPanel2.add(btnAsignarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
         btnBuscarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
         btnBuscarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarEmpleadoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnBuscarEmpleadoMouseEntered(evt);
             }
@@ -178,8 +192,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(lblNombreBuscar))
         );
 
+        jPanel2.add(btnBuscarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
+
         btnMostrarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
         btnMostrarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMostrarEmpleadoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMostrarEmpleadoMouseEntered(evt);
             }
@@ -213,8 +232,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(lblNombreMostrar))
         );
 
+        jPanel2.add(btnMostrarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
+
         btnActualizarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
         btnActualizarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarEmpleadoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnActualizarEmpleadoMouseEntered(evt);
             }
@@ -247,6 +271,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNombreActualizar))
         );
+
+        jPanel2.add(btnActualizarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, -1, -1));
 
         btnEliminarEmpleado.setBackground(new java.awt.Color(244, 232, 252));
         btnEliminarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -283,6 +309,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(lblNombreEliminar))
         );
 
+        jPanel2.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, -1, -1));
+
         btnGenerarReportEmp.setBackground(new java.awt.Color(244, 232, 252));
         btnGenerarReportEmp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -316,6 +344,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNombreGenerarReportEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel2.add(btnGenerarReportEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 41, -1, -1));
 
         btnGenerarReportDep.setBackground(new java.awt.Color(244, 232, 252));
         btnGenerarReportDep.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -351,47 +381,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(lblNombreGenerarReportDep, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btnAsignarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnGenerarReportEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnGenerarReportDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnMostrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addComponent(btnActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))))
+        jPanel2.add(btnGenerarReportDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 41, -1, -1));
+
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(244, 232, 252));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 820, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGenerarReportEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGenerarReportDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnActualizarEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrarEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAsignarEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(24, 24, 24))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
         );
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 820, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -478,13 +491,44 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btnGenerarReportDepMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReportDepMouseExited
         this.saliendoMouse(btnGenerarReportDep);
     }//GEN-LAST:event_btnGenerarReportDepMouseExited
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        this.dispose();
+        
+        IniciarSesion iniciar= new IniciarSesion(null, true, sistema);
+        iniciar.setVisible(true);
+        
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnMostrarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarEmpleadoMouseClicked
+        MostrarEmpleado ventana = new MostrarEmpleado(this,true,sistema);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnMostrarEmpleadoMouseClicked
+
+    private void btnAsignarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAsignarEmpleadoMouseClicked
+        AsignarEmpleado ventana = new AsignarEmpleado(this,true,sistema);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnAsignarEmpleadoMouseClicked
+
+    private void btnBuscarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoMouseClicked
+        BuscarEmpleado ventana = new BuscarEmpleado(this, true, sistema);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnBuscarEmpleadoMouseClicked
+
+    private void btnActualizarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarEmpleadoMouseClicked
+        ActualizarEmpleado ventana = new ActualizarEmpleado (this,true,sistema);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnActualizarEmpleadoMouseClicked
     
     private void configurarMenuSegunRol() {
     String rol = sistema.getRol();
     
+    if (rol == null) return; // Protección por si el rol es null
+    
     switch(rol) {
         case "ADMIN" -> {
-            }
+            break;
+            }// Admin ve todos los botones (no ocultar nada)
             
         case "JEFE_DEPARTAMENTO" -> {
             // Ocultar botones que no puede usar
@@ -492,7 +536,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             btnActualizarEmpleado.setVisible(false);
             btnBuscarEmpleado.setVisible(false);
             btnEliminarEmpleado.setVisible(false);
-                // Solo puede: Mostrar empleados, Reportes
+            break; // Solo puede: Mostrar empleados, Reportes
             }
             
         case "EMPLEADO" -> {
@@ -502,15 +546,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
             btnActualizarEmpleado.setVisible(false);
             btnBuscarEmpleado.setVisible(false);
             btnGenerarReportDep.setVisible(false);
+            break;
             }
-    }
-        // Admin ve todos los botones (no ocultar nada)
+        
         }
-
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnActualizarEmpleado;
     private javax.swing.JPanel btnAsignarEmpleado;
     private javax.swing.JPanel btnBuscarEmpleado;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JPanel btnEliminarEmpleado;
     private javax.swing.JPanel btnGenerarReportDep;
     private javax.swing.JPanel btnGenerarReportEmp;
@@ -518,6 +564,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblIconActualizarEmpleado;
     private javax.swing.JLabel lblIconAgregarEmpleado;
