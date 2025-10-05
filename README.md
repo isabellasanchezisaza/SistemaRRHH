@@ -1,6 +1,6 @@
 Contenido del proyecto:
 - Main (SistemaRRHH).
-- Controller (Contorllers)
+- Controller (Controllers)
 - Modelos (Sistema.models).
 - Vistas (Sistema.views).
 - Imagenes (Sistema.images).
