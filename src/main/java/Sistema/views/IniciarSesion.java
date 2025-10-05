@@ -6,7 +6,6 @@ package Sistema.views;
 
 import javax.swing.JOptionPane;
 import Controllers.Sistema;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 /**
  *
@@ -14,7 +13,6 @@ import javax.swing.ImageIcon;
  */
 public class IniciarSesion extends javax.swing.JDialog {
     private Sistema sistema;
-    private ArrayList<MenuPrincipal> menu;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(IniciarSesion.class.getName());
 
     /**
@@ -26,7 +24,6 @@ public class IniciarSesion extends javax.swing.JDialog {
     public IniciarSesion(java.awt.Frame parent, boolean modal, Sistema sistema) {
         super(parent, modal);
         this.sistema=sistema;
-        this.menu= new ArrayList<>();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon(getClass().getResource("/Sistema/images/icons8-recursos-humanos-50.png")).getImage());
@@ -190,7 +187,7 @@ public class IniciarSesion extends javax.swing.JDialog {
     }//GEN-LAST:event_txtContraseñaActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        System.out.println("Iniciar Sesión");
+        System.out.println("Iniciar Sesión"); //Aparecerá en 
         String user = txtUsuario.getText();
         String password = new String(txtContraseña.getPassword());
         
